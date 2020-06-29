@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:fb="sap.ui.comp.filterbar">
+<Bar visible="true">
+							<contentLeft>
+								<Button icon="sap-icon://menu"/>
+							</contentLeft>
+							<contentMiddle>
+								<Text text="Products"/>
+								<Button icon="sap-icon://product"/>
+							</contentMiddle>
+							<contentRight>
+								<Button icon="sap-icon://user-settings"/>
+							</contentRight>
+						</Bar>
+</core:FragmentDefinition>

@@ -1,0 +1,90 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar" controllerName="com.demo.ZDemo_Odata_Service.controller.ProductView1">
+	<Carousel loop="true" class="sapUiMediumBeginEnd" height="60%">
+		<pages>
+			<Image src="./images/img1.jpg" class="customImg"/>
+			<Image src="./images/img6.png" class="customImg"/>
+			<Image src="./images/img4.jpg" class="customImg"/>
+		</pages>
+	</Carousel>
+	<VBox>
+		<fb:FilterBar class="sapUiSizeCompact" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+			<fb:filterGroupItems>
+				<fb:FilterGroupItem groupName="_Rating" name="A" label="Rating" labelTooltip="Tooltip1" partOfCurrentVariant="true"
+					visibleInFilterBar="true">
+					<fb:control>
+						<HBox>
+							<ComboBox id="idCombo" items="{oViewModel>/aList}" selectedKey="{oViewModel>/sSelect}">
+								<items>
+									<core:Item key="{oViewModel>Rating}" text="{oViewModel>Rating}"/>
+								</items>
+							</ComboBox>
+							<Button text="Filter" press="onClick" type="Emphasized"></Button>
+						</HBox>
+					</fb:control>
+				</fb:FilterGroupItem>
+				<!--	<fb:FilterGroupItem groupName="_Quality" name="B" label="Quality" labelTooltip="Tooltip Example" partOfCurrentVariant="true"
+					visibleInFilterBar="true">
+					<fb:control>
+						<HBox>
+							<ComboBox id="idCombo2" items="{oViewModel>/aList2}" selectedKey="{oViewModel>/sSelect2}">
+								<items>
+									<core:Item key="{oViewModel>Quality}" text="{oViewModel>Quality}"/>
+								</items>
+							</ComboBox>
+							<Button text="Filter" press="onClick2" type="Emphasized"></Button>
+						</HBox>
+					</fb:control>
+				</fb:FilterGroupItem>-->
+			</fb:filterGroupItems>
+		</fb:FilterBar>
+		<Table id="idProductsTable1" class="sapUiSizeCompact" items="{ path: 'OdataTableModel>/results'}">
+			<headerToolbar>
+				<OverflowToolbar>
+					<Title id="title" text="{i18n>Products}"></Title>
+					<ToolbarSpacer/>
+					<Label text="{i18n>Sort}"/>
+					<Button icon="sap-icon://sort" tooltip="Settings" press="onClickSort"/>
+					<Button icon="sap-icon://add" type="Emphasized" press="onAddItem"></Button>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns width="100%">
+				<Column width="16.67%">
+					<Text text="{i18n>id}"/>
+				</Column>
+				<Column width="16.67%">
+					<Text text="{i18n>name}"/>
+				</Column>
+				<Column width="16.67%">
+					<Text text="{i18n>price}"/>
+				</Column>
+				<Column width="16.67%">
+					<Text text="{i18n>rating}"/>
+				</Column>
+				<Column width="16.67%">
+					<Text text="{i18n>quality}"/>
+				</Column>
+				<Column width="16.67%">
+					<Text text="{i18n>action}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{OdataTableModel>ID}"/>
+						<Text text="{OdataTableModel>Name}"/>
+						<Text text="{OdataTableModel>Price}"/>
+						<Text text="{path: 'OdataTableModel>Rating', formatter:'com.demo.ZDemo_Odata_Service.utility.formatter.changeColor'}"/>
+						<Text text="{path: 'OdataTableModel>Rating', formatter:'com.demo.ZDemo_Odata_Service.utility.formatter.checkQuality'}"/>
+					
+							<Toolbar class="sapUiResponsiveMargin" clear="true">
+							<Button id="btnAccept" icon="sap-icon://edit" type="Accept" class="sapUiSmallMarginEnd" press="onEdit"/>
+							<Button id="btnDelete" icon="sap-icon://delete" type="Reject" class="sapUiSmallMarginEnd" press="onDelete"/>
+							</Toolbar>
+						
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</VBox>
+</core:FragmentDefinition>

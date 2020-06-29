@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:fb="sap.ui.comp.filterbar">
+	
+	<Dialog title="addItem" draggable="true" contentWidth="20rem" resizable="true"
+		class="sapUiSizeCompact" verticalScrolling="true">
+		<content>
+		<f:SimpleForm editable="true" columnsL="4" layout="ResponsiveGridLayout" id="idForm">
+								<f:content>
+									<Label text="{i18n>ID}" design="Bold"/>
+									<Input id="input-a" value="{OdataTableModel>/oFormData/ID}" editable="false"/>
+									<Label text="Name" design="Bold"/>
+									<Input id="idName" value="{OdataTableModel>/oFormData/Name}"/>
+									<Label text="Price" labelFor="input-e" design="Bold"/>
+									<Input id="input-e" value="{OdataTableModel>/oFormData/Price}"/>
+									<Label text="Rating" labelFor="input-c" design="Bold"/>
+									<Input id="input-c" value="{OdataTableModel>/oFormData/Rating}"/>
+									<Label text="Quality" labelFor="input-d" design="Bold"/>
+									<Input id="input-d" visible="{OdataTableModel>/oTablevisible}" value="{=${OdataTableModel>/oFormData/Rating} &lt;= 3 ? 'Bad':'Good'}" editable="false"/>
+								</f:content>
+							</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="Save" press="onSave" type="Accept"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" type="Reject" press="onCancel"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

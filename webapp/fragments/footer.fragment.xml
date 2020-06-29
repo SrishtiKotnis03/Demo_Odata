@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar">
+
+	<Bar>
+		<contentLeft>
+			<Button id="idHome" icon="sap-icon://home" press="onPressHome" class="styleFooter"/>
+		</contentLeft>
+		<contentMiddle>
+			<Button id="idGrid" icon="sap-icon://grid" press="onGrid"/>
+		</contentMiddle>
+		<contentRight>
+			<Button id="idCloseTab" icon="sap-icon://close-command-field" press="onCloseTab"/>
+		</contentRight>
+	</Bar>
+</core:FragmentDefinition>
